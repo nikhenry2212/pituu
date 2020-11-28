@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import { ContentContainer, Form, AdsBlock, } from "./styles";
 import ShortenerService from "../../services/shortenerService";
+import vars from '../../configs/vars'
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -83,7 +84,7 @@ class HomePage extends React.Component {
                   <InputGroup className="mb-3">
                     <FormControl
                       autoFocus={true}
-                      defaultValue={`https://pitu.tk/${code}`}
+                      defaultValue={vars.HOST_APP + code}
                       ref={(input) => (this.inputURL = input)}
                     />
                     <InputGroup.Append>
@@ -96,10 +97,10 @@ class HomePage extends React.Component {
                     </InputGroup.Append>
                   </InputGroup>
                   <p>
-                    Para acompanhar as estatísticas, acesse https://pitu.tk/
-                    {code}
-                  </p>
+                    Para acompanhar as estatísticas, acesse {vars.HOST_APP + code}/stats</p>
                 </>
+                  
+                   
               )
             )}
             {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
